@@ -1,0 +1,31 @@
+	# mount point	          fstype               device         device2                                flags
+/metadata                  ext4               /dev/block/bootdevice/by-name/metadata                            flags=display="metadata";wrappedkey;backup=1
+/data                      f2fs                /dev/block/bootdevice/by-name/userdata                 flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized+wrappedkey_v0,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts:wrappedkey_v0
+/cache                     ext4                /dev/block/bootdevice/by-name/oplusreserve2                    flags=backup=1;wipeingui;wipeduringfactoryreset
+
+#supper
+/system   ext4   /dev/block/mapper/system  flags=display="system";logical;slotselect
+
+/system_ext              ext4      /dev/block/mapper/system_ext                                      flags=display="system_ext";logical;slotselect
+/product                 ext4      /dev/block/mapper/product                                         flags=display="product";logical;slotselect
+/vendor                  ext4      /dev/block/mapper/vendor                                          flags=display="vendor";logical;slotselect
+/odm                     ext4      /dev/block/mapper/odm                                             flags=display="odm";logical;slotselect
+/my_product              ext4      /dev/block/mapper/my_product                                      flags=display="my_product";logical;slotselect
+/my_company              ext4      /dev/block/mapper/my_company                                      flags=display="my_company";logical;slotselect
+/my_carrier              ext4      /dev/block/mapper/my_carrier                                      flags=display="my_carrier";logical;slotselect
+/my_region               ext4      /dev/block/mapper/my_region                                       flags=display="my_region";logical;slotselect
+/my_bigball              ext4      /dev/block/mapper/my_bigball                                      flags=display="my_bigball";logical;slotselect
+/my_heytap               ext4      /dev/block/mapper/my_heytap                                       flags=display="my_heytap";logical;slotselect
+/my_stock                ext4      /dev/block/mapper/my_stock                                        flags=display="my_stock";logical;slotselect
+/my_preload              ext4      /dev/block/mapper/my_preload                                      flags=display="my_preload";logical;slotselect
+/my_manifest             ext4      /dev/block/mapper/my_manifest                                     flags=display="my_manifest";logical;slotselect
+/my_engineering          ext4      /dev/block/mapper/my_engineering                                  flags=display="my_engineering";logical;slotselect
+
+#Img-recovery
+/boot                      emmc                /dev/block/bootdevice/by-name/boot                     flags=display="boot";backup=1;flashimg=1
+/recovery                  emmc                /dev/block/bootdevice/by-name/recovery                 flags=display="recovery";backup=1;flashimg=1
+
+/misc                    emmc      /dev/block/bootdevice/by-name/misc              flags=display="misc";backup=1;flashimg=1
+# Removable storage
+/usb-otg                   auto                /dev/block/sdg1    /dev/block/sdg                      flags=display="usb-otg";storage;wipeingui;removable;fsflags="utf8"
+
